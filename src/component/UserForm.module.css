@@ -5,17 +5,19 @@
     padding: 30px;
     border: 1px solid #e0e0e0;
     border-radius: 10px;
-    max-width: 450px;
+    /* max-width: 450px; */
     margin: 50px auto;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     background-color: #fff;
     text-align: center;
+    width: 80%;
   }
   
   h2 {
     color: #333;
     margin-bottom: 30px;
     font-size: 1.8rem;
+    width: 100%;
   }
   
   .form {
@@ -26,7 +28,7 @@
   
   .inputGroup {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: flex-start;
   }
   
@@ -35,6 +37,9 @@
     font-weight: bold;
     color: #555;
     font-size: 1.1rem;
+    width: 10%;
+    text-align: right;
+    padding-right: 5%;
   }
   
   .inputField {
@@ -44,6 +49,13 @@
     border-radius: 6px;
     font-size: 1rem;
     box-sizing: border-box;
+    width: 70%;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+    -webkit-appearance: none; /* 기본 스피너 모양 제거 */
+    margin: 0; /* 일부 브라우저에서 마진이 남는 것을 방지 */
+  }
   }
   
   .inputField:focus {

@@ -34,12 +34,12 @@ const UserForm: React.FC<UserFormProps> = ({ onSubmit }) => {
     // 부모 컴포넌트로부터 전달받은 onSubmit 함수를 호출하여 데이터를 전달합니다.
     onSubmit(formData);
 
-    // 폼 제출 후 입력 필드 초기화 (선택 사항)
-    setBirthday('');
-    setGeder('');
-    setAge(0);
-    setJob('');
-    setRelationship('nothing');
+    // // 폼 제출 후 입력 필드 초기화
+    // setBirthday('');
+    // setGeder('');
+    // setAge(0);
+    // setJob('');
+    // setRelationship('nothing');
   };
 
   return (
@@ -84,7 +84,12 @@ const UserForm: React.FC<UserFormProps> = ({ onSubmit }) => {
             id="ageInput"
             className={styles.inputField}
             value={age}
-            onChange={(e) => setAge(parseInt(e.target.value))}
+            onChange={(e) => {
+              const v = parseInt(e.target.value);
+              if(v < 0) setAge(0);
+              setAge(v);
+              }
+            }
             placeholder="나이를 입력하세요"
             required
           />
