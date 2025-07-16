@@ -1,29 +1,23 @@
 import axios from 'axios';
-import type { Result, UserFormData } from '../type/type';
-
+import type { Result, UserFormData, ApiResponse, Product} from '../type/type';
 // interface ApiRequest {
 //
 // }
 
-interface ApiResponse {
-  message: string;
-  status: 'success' | 'error'; 
-  data?: UserFormData;  
-}
-
 export default class ApiManager {
     API_URL: string = import.meta.env.VITE_MOCK_SERVER_URL;
 
-    async post(data: UserFormData): Promise<Result<ApiResponse, Error>>{
+    async post(data: UserFormData): Promise<Result<Product[], Error>>{
 
-        const result: ApiResponse = {message: "ok", status: "success"};
+        //const result: ApiResponse = {message: "ok", status: "success"};
         console.log('App.tsx: API로 전송할 데이터:', data);
 
         const response = await axios.post<UserFormData>(this.API_URL, data);
 
         console.log('App.tsx: API 응답 데이터:', response.data, JSON.stringify(response.data));
-
-        return [result, null]; 
+        
+        
+        return [JSON.parse(JSON.stringify(response.data)), null]; 
     }
 }
 

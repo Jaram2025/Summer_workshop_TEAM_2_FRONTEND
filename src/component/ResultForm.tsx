@@ -1,9 +1,25 @@
 import React from 'react';
+import ProductCard from './ProductCard';
+import "./ResultForm.css";
+import type { Product } from '../type/type';
 
-const ResultForm: React.FC = () => {
+interface ResultFormProps {
+    products: Product[];
+}
+
+const ResultForm: React.FC<ResultFormProps> = ({products}) => {
+    // const products: Product[] = [
+    //     {product_name: "ddd", approx_price_krw: 111, reason:"111"},
+    //     {product_name: "ddd", approx_price_krw: 111, reason:"111"},
+    //     {product_name: "ddd", approx_price_krw: 111, reason:"111"}
+    // ];
+
     return (
-        <div  className={"container"}>
-            <h1>Hello, World!</h1>
+        <div className={"result-form-container"}>
+            {/* <ProductCard product={{product_name: "ddd", approx_price_krw: 111, reason:"111"}}/> */}
+            {products.map((product, _) => (
+                <ProductCard product={product}/>
+            ))}
         </div>
     );
 };

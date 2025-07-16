@@ -10,3 +10,15 @@ export interface UserFormData {
     budgetMin: number;
     budgetMax: number;
 }
+
+export interface Product {
+  product_name: string;
+  approx_price_krw: number;
+  reason: string;
+}
+
+export interface ApiResponse {
+  message: string;
+  status: 'success' | 'error'; 
+  data?: Product[];  
+}
