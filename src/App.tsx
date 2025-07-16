@@ -21,16 +21,22 @@ export default function App() {
     const [result, err] = await apiManager.post(data);
     if(err != null){
       //write error log
+    } else{
+      if(result != null)
+        setResultData(result);
     }
-    if(result != null)
-      setResultData(result);
+
+  };
+
+  const resetForm = ():void => {
+    setReceivedFormData(null);
   };
   return (
     <>
       <div className="App">
-        <h1>Summer_workshop_TEAM_2_FRONTEND</h1>
-          <UserForm onSubmit={handleUserFormSubmit} />
-          {receivedFormData && (
+        <h2 onClick={resetForm}>GIFT RECOMENDATION SERVICE</h2>
+          {(!receivedFormData && <UserForm onSubmit={handleUserFormSubmit} />)} 
+          { (receivedFormData &&
               <>
               <ResultForm products={resultData}/>
               </>

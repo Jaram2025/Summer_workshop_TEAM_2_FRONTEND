@@ -27,7 +27,7 @@ const UserForm: React.FC<UserFormProps> = ({ onSubmit }) => {
 
     return (
     <div className={styles.container}>
-      <h2>사용자 정보 입력</h2>
+      <h2>정보 입력</h2>
       <form onSubmit={handleSubmit} className={styles.form}>
       <div className={styles.inputGroup}>
           <label htmlFor="birthdayInput" className={styles.label}>

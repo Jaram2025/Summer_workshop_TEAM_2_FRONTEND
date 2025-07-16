@@ -6,11 +6,14 @@
   text-align: center;
   align-items: center;
   padding-top: 0px;
+   
 }
 
 .app {
   text-align: center;
   margin-top: 50px;
+  display: flex;
+  justify-content: center; 
 }
 h1{
   font-size: 3vw;

@@ -9,15 +9,18 @@ export default class ApiManager {
 
     async post(data: UserFormData): Promise<Result<Product[], Error>>{
 
-        //const result: ApiResponse = {message: "ok", status: "success"};
+        let result: Product[];
         console.log('App.tsx: API로 전송할 데이터:', data);
 
         const response = await axios.post<UserFormData>(this.API_URL, data);
 
         console.log('App.tsx: API 응답 데이터:', response.data, JSON.stringify(response.data));
         
+        result = JSON.parse(JSON.stringify(response.data)) as Product[];
+        if (result[0] === undefined)
+            return[null, new Error("응답받은 JSON형식이 올바르지 않습니다.")];
+        return [result, null]; 
         
-        return [JSON.parse(JSON.stringify(response.data)), null]; 
     }
 }
 

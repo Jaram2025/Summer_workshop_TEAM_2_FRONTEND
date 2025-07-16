@@ -6,7 +6,8 @@
     padding-left: 0;
     padding-right: 0;
     border: 0;
-    margin: 50px auto;
+    margin: auto;
+    /* margin: 50px auto; */
     /* border: 1px solid #e0e0e0; */
     /* border-radius: 10px; */
     /* max-width: 450px; */
@@ -17,5 +18,5 @@
     text-align: center;
     width: 80%;
     display: flex;
-    justify-content: center ;
+    justify-content: center;
 }
