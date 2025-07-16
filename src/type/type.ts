@@ -17,8 +17,9 @@ export interface Product {
   reason: string;
 }
 
-// export interface ApiResponse {
+export interface ApiResponse {
+    recommendations: Product[]; 
 //   message: string;
 //   status: 'success' | 'error'; 
 //   data?: Product[];  
-// }
+}

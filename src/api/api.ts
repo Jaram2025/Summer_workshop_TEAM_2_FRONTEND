@@ -1,5 +1,5 @@
 import axios from 'axios';
-import type { Result, UserFormData, Product} from '../type/type';
+import type { Result, UserFormData, Product, ApiResponse} from '../type/type';
 // interface ApiRequest {
 //
 // }
@@ -9,17 +9,20 @@ export default class ApiManager {
 
     async post(data: UserFormData): Promise<Result<Product[], Error>>{
 
-        let result: Product[];
+        let result: ApiResponse;
         console.log('App.tsx: API로 전송할 데이터:', data);
 
         const response = await axios.post<UserFormData>(this.API_URL, data);
 
         console.log('App.tsx: API 응답 데이터:', response.data, JSON.stringify(response.data));
         
-        result = JSON.parse(JSON.stringify(response.data)) as Product[];
-        if (result[0] === undefined)
+        result = JSON.parse(JSON.stringify(response.data)) as ApiResponse;
+        if (result.recommendations[0] === undefined){
+            console.log("응답 형식이 올바르지 않습니다.")
             return[null, new Error("응답받은 JSON형식이 올바르지 않습니다.")];
-        return [result, null]; 
+        }
+        console.log("check");
+        return [result.recommendations, null]; 
         
     }
 }
