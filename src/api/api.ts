@@ -5,21 +5,24 @@ import type { Result, UserFormData, Product, ApiResponse} from '../type/type';
 // }
 
 export default class ApiManager {
-    API_URL: string = import.meta.env.VITE_MOCK_SERVER_URL;
+    API_URL: string = import.meta.env.VITE_SERVER_URL + "/profile";
 
     async post(data: UserFormData): Promise<Result<Product[], Error>>{
 
         let result: ApiResponse;
-        console.log('App.tsx: API로 전송할 데이터:', data);
+        console.log('API로 전송할 데이터:', data);
 
         const response = await axios.post<UserFormData>(this.API_URL, data);
 
-        console.log('App.tsx: API 응답 데이터:', response.data, JSON.stringify(response.data));
+        console.log('API 응답 데이터:', response.data, JSON.stringify(response.data));
         
+        if(response.status !== 200){
+            return [null, new Error("status code is not 200")];
+        }
         result = JSON.parse(JSON.stringify(response.data)) as ApiResponse;
+    
         if (result.recommendations[0] === undefined){
-            console.log("응답 형식이 올바르지 않습니다.")
-            return[null, new Error("응답받은 JSON형식이 올바르지 않습니다.")];
+            return[null, new Error("invalid json response")];
         }
         console.log("check");
         return [result.recommendations, null]; 
