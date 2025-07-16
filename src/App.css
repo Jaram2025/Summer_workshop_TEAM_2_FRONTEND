@@ -1,8 +1,19 @@
 #root {
   max-width: 1280px;
+  width: 80%;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  align-items: center;
+  padding-top: 0px;
+}
+
+.app {
+  text-align: center;
+  margin-top: 50px;
+}
+h1{
+  font-size: 3vw;
 }
 
 .container {
@@ -17,3 +28,5 @@
     text-align: center;
     width: 80%;
 }
+
+
