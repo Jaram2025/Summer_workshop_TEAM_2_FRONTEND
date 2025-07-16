@@ -17,8 +17,8 @@ const ResultForm: React.FC<ResultFormProps> = ({products}) => {
     return (
         <div className={"result-form-container"}>
             {/* <ProductCard product={{product_name: "ddd", approx_price_krw: 111, reason:"111"}}/> */}
-            {products.map((product, _) => (
-                <ProductCard product={product}/>
+            {products.map((product, index) => (
+                <ProductCard key={index} product={product}/>
             ))}
         </div>
     );

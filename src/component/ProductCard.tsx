@@ -13,7 +13,7 @@ const ProductCard: React.FC<ProductCardProps> = ({product}) => {
     <div className="product-card-container">
       <h3 className="product-name">{product.product_name}</h3>
       <p className="price">
-        예상 가격: <span className="price-value">{formattedPrice}</span>
+        가격: <span className="price-value">{formattedPrice}</span>
       </p>
       <div className="reason-section">
         <h4 className="reason-title">추천 이유</h4>

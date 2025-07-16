@@ -1,5 +1,5 @@
 import axios from 'axios';
-import type { Result, UserFormData, ApiResponse, Product} from '../type/type';
+import type { Result, UserFormData, Product} from '../type/type';
 // interface ApiRequest {
 //
 // }

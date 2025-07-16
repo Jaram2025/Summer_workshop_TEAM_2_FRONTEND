@@ -34,13 +34,9 @@ export default function App() {
   return (
     <>
       <div className="App">
-        <h2 onClick={resetForm}>GIFT RECOMENDATION SERVICE</h2>
+        <h2 onClick={resetForm}>GIFT RECOMMENDATION SERVICE</h2>
           {(!receivedFormData && <UserForm onSubmit={handleUserFormSubmit} />)} 
-          { (receivedFormData &&
-              <>
-              <ResultForm products={resultData}/>
-              </>
-          )}
+          {(receivedFormData && <><ResultForm products={resultData}/></>)}
       </div>
     </>
   );
